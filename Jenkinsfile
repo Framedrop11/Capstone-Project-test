@@ -25,6 +25,14 @@ pipeline {
             }
         }
 
+        stage('Debug Workspace') {
+            steps {
+                bat "dir"
+                bat "dir /s"
+            }
+        }
+
+
         stage('Update Deployment Image') {
             steps {
                 bat """
@@ -33,10 +41,12 @@ pipeline {
             }
         }
 
-        stage('Deploy via Ansible (WSL)') {
+        sstage('Deploy to Kubernetes') {
             steps {
-                bat "wsl ansible-playbook ansible/deploy.yml"
+                bat "kubectl apply -f k8s/deployment.yaml"
+                bat "kubectl rollout restart deployment myapp"
             }
         }
+
     }
 }

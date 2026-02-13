@@ -1,0 +1,8 @@
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Apply Kubernetes Deployment
+      shell: kubectl apply -f k8s/deployment.yaml
+
+    - name: Restart Deployment
+      shell: kubectl rollout restart deployment myapp

@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "yourdockerhub/myapp:${BUILD_NUMBER}"
+        IMAGE_NAME = "mriganka11/myapp:${BUILD_NUMBER}"
     }
 
     stages {

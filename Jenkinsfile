@@ -7,12 +7,6 @@ pipeline {
 
     stages {
 
-        stage('Clone') {
-            steps {
-                git 'https://github.com/yourrepo/ci-cd-project.git'
-            }
-        }
-
         stage('Build Image') {
             steps {
                 bat "docker build -t %IMAGE_NAME% ."

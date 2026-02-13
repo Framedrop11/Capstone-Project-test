@@ -1,1 +1,1 @@
-print("this is a automation test")
+print("is the CI/CD pipeline working?")
